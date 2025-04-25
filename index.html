@@ -6,6 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projeto JS com Estilo</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Pacifico&family=Playwrite+AU+SA:wght@100..400&display=swap"
+    rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
     * {
@@ -15,40 +20,26 @@
     }
 
     body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(to right, #2b2b2b, #3c3c3c);
-            color: #f4f4f4;
-            margin: 0;
-            padding: 20px;
-        }
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to right, #d6bfec, #bb92f1);
+      color: #f4f4f4;
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
 
-    h1, h2 {
+    h1,
+    h2 {
       text-align: center;
       margin-bottom: 20px;
     }
 
     h1 {
-      color: #f9a8d4;
-    }
-
-    button {
-      background: linear-gradient(to right, #f472b6, #be185d);
-      color: white;
-      border: none;
-      padding: 10px 16px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-    }
-
-    button:hover {
-      background: linear-gradient(to right, #be185d, #9d174d);
-      transform: scale(1.03);
+      color: #c02776;
+      font-family: "Playwrite AU SA", cursive;
+      font-optical-sizing: auto;
+      font-weight: <weight>;
+      font-style: normal;
     }
 
     input {
@@ -58,72 +49,70 @@
       border-radius: 6px;
       width: 120px;
       font-size: 16px;
-      background-color: #444;
-      color: #fff;
+      background-color: #f1eeee;
+      color: #00000060;
     }
 
-    input::placeholder {
-      color: #bbb;
-    }
-
-    .resultado {
+    .retorno {
       margin-top: 10px;
       padding: 10px;
-      background: #3b3b3b;
+      background: #f1eeee;
       border-left: 5px solid #f472b6;
       border-radius: 6px;
     }
 
-    .modificar {
+    .clicar {
       background: linear-gradient(145deg, #fbcfe8, #f472b6);
       border-radius: 20px;
       padding: 25px;
       margin: 30px 0;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-      color: #e4c2e1;
+      color: #be185d;
+      text-align: center;
       cursor: pointer;
     }
 
-    .modificar h2 {
+    .clicar h2 {
       color: #be185d;
       margin-bottom: 15px;
+
+    }
+
+    .clicar:hover {
+      background: #f171b3;
+      transform: scale(1.04);
     }
   </style>
 </head>
 
 <body>
-  <h1>Mini Projeto com JavaScript</h1>
+  <h1>Funcionalidades</h1>
 
-  <div class="modificar">
+  <div class="clicar" onclick="mostrarOlaMundo()">
     <h2><i data-lucide="message-circle"></i> Mensagem "Olá Mundo"</h2>
-    <button onclick="mostrarOlaMundo()"><i data-lucide="smile"></i>Mostrar</button>
-    <p id="mensagem-ola" class="resultado"></p>
+    <p id="mensagem-ola" class="retorno"></p>
   </div>
 
-  <div class="modificar">
-    <h2><i data-lucide="plus"></i> Soma de 2 Números</h2>
-    <input type="number" id="numero1" placeholder="Número 1">
-    <input type="number" id="numero2" placeholder="Número 2">
-    <button onclick="calcularSoma()"><i data-lucide="calculator"></i>Somar</button>
-    <div id="resultado-soma" class="resultado"></div>
+  <div class="clicar" onclick="calcularSoma()" style="cursor: pointer;">
+    <h2><i data-lucide="calculator"></i> Clique para executar a soma de dois números</h2>
+    <input type="number" id="numero1" placeholder="Insira o primeiro valor">
+    <input type="number" id="numero2" placeholder="Insira o segundo valor">
+    <div id="retorno-soma" class="retorno"></div>
   </div>
 
-  <div class="modificar">
-    <h2><i data-lucide="edit"></i> Alterar por ID</h2>
-    <button onclick="alterarPorId()"><i data-lucide="check"></i>Alterar</button>
-    <div id="elemento-id" class="resultado">Texto original ID</div>
+  <div class="clicar" onclick="alterarPorId()">
+    <h2><i data-lucide="edit"></i> Clique para alterar o texto por ID</h2>
+    <div id="elemento-id" class="retorno">Texto original ID</div>
   </div>
 
-  <div class="modificar">
-    <h2><i data-lucide="edit-2"></i> Alterar por Nome</h2>
-    <button onclick="alterarPorNome()"><i data-lucide="check"></i>Alterar</button>
-    <input type="text" name="elemento-nome" value="Texto original Nome">
+  <div class="clicar" onclick="alterarPorNome()">
+    <h2><i data-lucide="edit-2"></i> Clique para alterar o texto por Nome</h2>
+    <div type="text" name="elemento-nome" class="retorno">Texto original Nome</div>
   </div>
 
-  <div class="modificar">
-    <h2><i data-lucide="layers"></i> Alterar por Classe</h2>
-    <button onclick="alterarPorClasse()"><i data-lucide="check"></i>Alterar</button>
-    <div class="elemento-classe resultado">Texto original Classe</div>
+  <div class="clicar" onclick="alterarPorClasse()">
+    <h2><i data-lucide="layers"></i> Clique para alterar o texto por Classe</h2>
+    <div class="elemento-classe retorno">Texto original Classe</div>
   </div>
 
   <script>
@@ -137,7 +126,7 @@
       const num1 = parseInt(document.getElementById("numero1").value) || 0;
       const num2 = parseInt(document.getElementById("numero2").value) || 0;
       const soma = num1 + num2;
-      document.getElementById("resultado-soma").innerText = "Resultado da soma: " + soma;
+      document.getElementById("retorno-soma").innerText = "Resultado da soma: " + soma;
     }
 
     function alterarPorId() {
@@ -146,7 +135,7 @@
 
     function alterarPorNome() {
       const elemento = document.getElementsByName("elemento-nome")[0];
-      elemento.value = "Texto alterado por Nome";
+      elemento.innerText = "Texto alterado por Nome";
     }
 
     function alterarPorClasse() {
